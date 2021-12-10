@@ -33,7 +33,7 @@ function onClick(evt) {
     }
     const imageSrc = evt.target.dataset.source;
     console.log(imageSrc);
-    const modal = basicLightbox.create(`<img src="${imageSrc}">`);
+    const modal = basicLightbox.create(`<img src="${imageSrc}"/>`);
     modal.show();
     window.addEventListener('keydown', onKeydown);
     
