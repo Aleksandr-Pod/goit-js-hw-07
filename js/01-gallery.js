@@ -3,9 +3,12 @@ import { galleryItems } from './gallery-items.js';
 console.log(galleryItems);
 
 const gallery = galleryItems.map(({ preview, original, description }) => {
-    return `<a class="gallery__link" href="${original}">
-        <img class="gallery__image" src="${preview}" alt="${description}"
-        data-source=${original}/></a>`
+    return `<div class="gallery__item">
+    <a class="gallery__link" href="${original}">
+    <img class="gallery__image" src="${preview}" alt="${description}"
+        data-source=${original}/>
+    </a>
+    </div>`
     
     // const gItem = document.createElement("a");
     // gItem.className = "gallery__link";
@@ -35,18 +38,17 @@ function onClick(evt) {
     console.log(imageSrc);
     const modal = basicLightbox.create(`<img src="${imageSrc}"/>`);
     modal.show();
-    window.addEventListener('keydown', onKeydown);
-    
+    // window.addEventListener('keydown', onKeydown);
 }
 
-function onKeydown(evtKeydown) {
-    if (evtKeydown.code === "Escape") {
-        console.log("exit modal");
-        galleryRef.removeEventListener('keydown', onKeydown);
-        modal.close(); // Не работает !!! - modal is not defined
-        return
-    };
-}
+// function onKeydown(evtKeydown) {
+//     console.log(evtKeydown);
+//     if (evtKeydown.code === "Escape") {
+//         console.log("exit modal");
+//         galleryRef.removeEventListener('keydown', onKeydown);
+//         modal.close(); // Не работает !!! - modal is not defined
+//     };
+// }
  
 
 
