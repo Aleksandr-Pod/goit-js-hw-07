@@ -24,9 +24,10 @@ function onClick(evt) {
     evt.preventDefault();
     
     window.addEventListener('keydown', onKeydown);
-
+    console.log("ADD listener on  KEYdown");
     if (evt.target.nodeName !== "IMG") {
         window.removeEventListener('keydown', onKeydown);
+        console.log("REMOVE listener on  KEYdown");
         return
     }
     const imageSrc = evt.target.dataset.source;
@@ -35,14 +36,11 @@ function onClick(evt) {
     
 
     function onKeydown(evtKeydown) {
-        console.log("evtKeydown");
         if (evtKeydown.code === "Escape") {
             console.log("exit modal");
-            galleryRef.removeEventListener('keydown', onKeydown);
+            window.removeEventListener('keydown', onKeydown);
             modal.close();
             return
         };
     }
 }
-
-
